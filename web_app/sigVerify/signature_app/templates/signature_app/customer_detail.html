@@ -1,0 +1,45 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Signature Verification of {{ customer.fname }} {{customer.lname}}</h1>
+
+
+  <div class="image-form form">
+    <h1>Image Upload</h1>
+    <form method="post" action="http://localhost:4115/verify-image" enctype="multipart/form-data">
+        <img src="{{ customer.signature.url }}" id="sign">
+        <input type="file" name="vsign" id="vsign">
+        <input type="submit" value="Verify">
+    </form>
+</div>
+
+<div class="finger-form form">
+    <h1>Finger Upload</h1>
+    <form method="post" action="http://localhost:4115/verify-finger" enctype="multipart/form-data">
+        <input type="file" name="sign" id="sign">
+        <input type="file" name="vsign" id="vsign">
+        <input type="submit" value="Verify">
+    </form>
+</div>
+
+<div class="finger-form form">
+    <h1>Image Explain Upload</h1>
+    <form method="post" action="http://localhost:4115/explain-cnn" enctype="multipart/form-data">
+      <img src="{{ customer.signature.url }}" id="sign">
+        <input type="file" name="vsign" id="vsign">
+        <input type="submit" value="Verify">
+    </form>
+</div>
+
+<div class="finger-form form">
+    <h1>Stylus Upload</h1>
+    <form method="post" action="http://localhost:4115/verify-stylus" enctype="multipart/form-data">
+        <input type="file" name="sign" id="sign">
+        <input type="file" name="vsign" id="vsign">
+        <input type="submit" value="Verify">
+    </form>
+</div>
+ 
+
+  
+{% endblock %}

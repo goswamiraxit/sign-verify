@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Select Customers signature to verify</h1>
+  {% if customer_list %}
+  <ul>
+    {% for customer in customer_list %}
+      <li>
+        <a href="{{ customer.get_absolute_url }}">{{ customer.fname }} {{customer.lname}}</a>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>No customers are  regsitered at this time.</p>
+  {% endif %}
+{% endblock %}
